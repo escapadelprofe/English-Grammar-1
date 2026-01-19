@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso con PIN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #iframeContainer {
+            display: none;
+            margin-top: 20px;
+        }
+        iframe {
+            width: 90%;
+            height: 600px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Introduce el PIN</h2>
+
+<input type="password" id="pinInput" placeholder="PIN">
+<button onclick="checkPin()">Entrar</button>
+
+<p id="error" style="color:red;"></p>
+
+<div id="iframeContainer">
+    <iframe src="https://example.com"></iframe>
+</div>
+
+<script>
+    const PIN_CORRECTO = "1234"; // PIN visible en el código
+
+    function checkPin() {
+        const pin = document.getElementById("pinInput").value;
+
+        if (pin === PIN_CORRECTO) {
+            document.getElementById("iframeContainer").style.display = "block";
+            document.getElementById("error").textContent = "";
+        } else {
+            document.getElementById("error").textContent = "PIN incorrecto";
+        }
+    }
+</script>
+
+</body>
+</html>
